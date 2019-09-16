@@ -36,25 +36,14 @@ setInterval(() => {
                 var turl = "https://twitter.com" + response.req.path;
                 if(!tweets[turl].length){
                     //FIRST LOAD
-                    $('div.js-tweet-text-container p').each((i,e) => {
-                        let s_tweet = '';
-                        e.children.forEach((d,j) => {
-                            if(d.type === 'text'){
-                               s_tweet += ' ' + d.data;
-                            }
-                        });
-                        tweets[turl].push(s_tweet);
-                    });
+                    for(let i=0;i<$('div.js-tweet-text-container p').length;i++){
+                        tweets[turl].push($('div.js-tweet-text-container p').eq(i).text());
+                    }
                 }
                 else{
                     //EVERY OTHER TIME
-                    $('div.js-tweet-text-container p').each((i,e) => {
-                        let s_tweet = '';
-                        e.children.forEach((d,j) => {
-                            if(d.type === 'text'){
-                               s_tweet += ' ' + d.data;
-                            }
-                        });
+                    for(let i=0;i<$('div.js-tweet-text-container p').length;i++){
+                        const s_tweet = $('div.js-tweet-text-container p').eq(i).text();
                         //CHECK IF TWEET IS NEWS
                         if(tweets[turl].indexOf(s_tweet) === -1){
                             tweets[turl].push(s_tweet);
@@ -77,7 +66,7 @@ setInterval(() => {
                                 }
                             });
                         }
-                    });
+                    }
                 }           
                  
             } catch (e) {
