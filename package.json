@@ -4,11 +4,11 @@
   "description": "",
   "main": "run.js",
   "dependencies": {
-    "async": "^3.1.0",
+    "async": "^3.2.0",
     "cheerio": "^1.0.0-rc.3",
-    "node-notifier": "^5.4.3",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.4"
+    "node-notifier": "^7.0.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
   },
   "devDependencies": {},
   "scripts": {
